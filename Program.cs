@@ -9,7 +9,9 @@ namespace XadrezC_
         {
             
             Tabuleiro tab = new Tabuleiro(8,8);
-            Console.WriteLine("Posição: "+tab);
+
+            Tela.ImprimirTabuleiro(tab);
+            //Console.WriteLine("Posição: "+tab);
         }
     }
 }
