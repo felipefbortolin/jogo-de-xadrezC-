@@ -1,7 +1,5 @@
 ﻿using System;
 using tabuleiro;
-using tabuleiro.Enums;
-using tabuleiro.Exceptions;
 using xadrez;
 
 namespace XadrezC_
@@ -20,6 +18,12 @@ namespace XadrezC_
 
                 System.Console.Write("\nOrigem: ");
                 Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                
+                bool[,] posicoesPossiveis = partida.Tab.Peca(origem).MovimentosPossiveis();
+
+                Console.Clear();
+                Tela.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
+                
                 System.Console.Write("Destino: ");
                 Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 

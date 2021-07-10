@@ -1,6 +1,6 @@
 
 
-using tabuleiro.Exceptions;
+using tabuleiro;
 
 namespace tabuleiro
 {
@@ -28,8 +28,14 @@ namespace tabuleiro
             return Pecas[pos.Linha, pos.Coluna];
 
         }
+        public bool ExistePeca(Posicao pos)
+        {
+            ValidarPosicao(pos);
+            return Peca(pos) != null;
+        }
 
-        public void ColocarPeca(Peca p, Posicao pos){
+        public void ColocarPeca(Peca p, Posicao pos)
+        {
             if (ExistePeca(pos))
             {
                 throw new TabuleiroException("Ja existe uma peca nessa posição!");
@@ -38,8 +44,10 @@ namespace tabuleiro
             p.Posicao = pos;
         }
 
-        public Peca RetirarPeca(Posicao pos){
-            if(Peca(pos) == null){
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if (Peca(pos) == null)
+            {
                 return null;
             }
             Peca aux = Peca(pos);
@@ -48,20 +56,18 @@ namespace tabuleiro
             return aux;
         }
 
-        public bool PosicaoValida(Posicao pos){
-            if (pos.Linha < 0|| pos.Linha > Linhas|| pos.Coluna <0|| pos.Coluna > Colunas)
+        public bool PosicaoValida(Posicao pos)
+        {
+            if (pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)
             {
                 return false;
             }
             return true;
         }
 
-        public bool ExistePeca(Posicao pos){
-            ValidarPosicao(pos);
-            return Peca(pos) != null;
-        }
 
-        public void ValidarPosicao(Posicao pos){
+        public void ValidarPosicao(Posicao pos)
+        {
             if (!PosicaoValida(pos))
             {
                 throw new TabuleiroException("Posição Invalida!");

@@ -1,4 +1,4 @@
-namespace tabuleiro.Enums {
+namespace tabuleiro {
     enum Cor{
         Branca,
         Preta,

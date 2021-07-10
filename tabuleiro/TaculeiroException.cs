@@ -1,6 +1,6 @@
 using System;
 
-namespace tabuleiro.Exceptions {
+namespace tabuleiro {
     class TabuleiroException : Exception
     {
         public TabuleiroException(string message) : base(message)

@@ -1,6 +1,5 @@
 
 using tabuleiro;
-using tabuleiro.Enums;
 
 namespace xadrez
 {
@@ -23,7 +22,7 @@ namespace xadrez
 
         public void ExecutarMovimento(Posicao origem, Posicao destino){
             Peca p = Tab.RetirarPeca(origem);
-            p.IncrementarQtdMovimentos();
+            p.IncrementarQteMovimentos();
             Peca pecaCapturada = Tab.RetirarPeca(destino);
             Tab.ColocarPeca(p,destino);
         }

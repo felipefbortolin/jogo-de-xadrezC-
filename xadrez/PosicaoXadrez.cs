@@ -1,6 +1,4 @@
 using tabuleiro;
-using tabuleiro.Enums;
-
 namespace xadrez
 {
     class PosicaoXadrez
@@ -16,11 +14,12 @@ namespace xadrez
 
         public override string ToString()
         {
-            return ""+Coluna+Linha;
+            return "" + Coluna + Linha;
         }
 
-        public Posicao ToPosicao(){
-            return new Posicao(8- Linha, Coluna - 'a');
+        public Posicao ToPosicao()
+        {
+            return new Posicao(8 - Linha, Coluna - 'a');
         }
     }
 }
