@@ -17,7 +17,7 @@ namespace XadrezC_
                     try
                     {
                         Console.Clear();
-                        
+
                         Tela.ImprimirPartida(partida);
 
                         System.Console.Write("\nOrigem: ");
@@ -40,8 +40,9 @@ namespace XadrezC_
                         System.Console.ReadLine();
                     }
                 }
-
-                Tela.ImprimirTabuleiro(partida.Tab);
+                Console.Clear();
+                Tela.ImprimirPartida(partida);
+                
                 //Console.WriteLine("Posição: "+tab);
             }
             catch (TabuleiroException e)

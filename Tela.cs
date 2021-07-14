@@ -12,10 +12,17 @@ namespace XadrezC_
             ImprimirTabuleiro(partida.Tab);
             ImprimirPecasCapturadas(partida);
             System.Console.WriteLine("Turno: " + partida.Turno);
+            if (!partida.Terminada)
+            {
             System.Console.WriteLine("Aguarnando jogada: " + partida.JogadorAtual);
             if (partida.Xeque)
             {
                 System.Console.WriteLine("XEQUE!");
+            }   
+            }else{
+                System.Console.WriteLine("XEQUEMATE!");
+                System.Console.WriteLine("Vencedor: "+partida.JogadorAtual);
+                Console.ReadLine();
             }
         }
 
