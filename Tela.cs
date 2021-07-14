@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using tabuleiro;
 using xadrez;
 
@@ -6,6 +7,37 @@ namespace XadrezC_
 {
     class Tela
     {
+        public static void ImprimirPartida(PartidaDeXadrez partida)
+        {
+            ImprimirTabuleiro(partida.Tab);
+            ImprimirPecasCapturadas(partida);
+            System.Console.WriteLine("Turno: " + partida.Turno);
+            System.Console.WriteLine("Aguarnando jogada: " + partida.JogadorAtual);
+        }
+
+        public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
+            System.Console.WriteLine("\nPeças capturadas:");
+            System.Console.Write("Brancas: ");
+            ImprimirConjunto(partida.PecasCapturadas(Cor.Branca));
+            System.Console.Write("\nPretas: ");
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            ImprimirConjunto(partida.PecasCapturadas(Cor.Preta));
+            Console.ForegroundColor = aux;
+            System.Console.WriteLine();
+        }
+
+        public static void ImprimirConjunto(HashSet<Peca> conjunto)
+        {
+            System.Console.Write("[");
+            foreach (Peca x in conjunto)
+            {
+                System.Console.Write(x + " ");
+            }
+            System.Console.Write("]");
+        }
+
         public static void ImprimirTabuleiro(Tabuleiro tab)
         {
             for (int i = 0; i < tab.Linhas; i++)
@@ -30,9 +62,12 @@ namespace XadrezC_
                 System.Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.Colunas; j++)
                 {
-                    if(posicoesPossiveis[i,j]){
+                    if (posicoesPossiveis[i, j])
+                    {
                         Console.BackgroundColor = fundoAlterado;
-                    }else{
+                    }
+                    else
+                    {
                         Console.BackgroundColor = fundoOriginal;
                     }
                     Tela.ImprimirPeca(tab.Peca(i, j));
